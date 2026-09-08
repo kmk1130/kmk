@@ -4,6 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>文章 · 代码手记</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("blog-theme") ||
+          (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -51,7 +61,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>© <span id="year"></span> 代码手记 · 用简单的 HTML + CSS + JS 搭建</p>
-      <a href="index.html" class="footer-link">回到顶部 ↑</a>
+      <a href="#" class="footer-link">回到顶部 ↑</a>
     </div>
   </footer>
 

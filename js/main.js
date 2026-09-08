@@ -9,8 +9,25 @@
   /* ---------- 主题切换 ---------- */
   const THEME_KEY = "blog-theme";
 
+  // 安全读写 localStorage：隐私模式 / file:// 等场景可能抛异常
+  function safeGetLocalStorage(key) {
+    try {
+      return localStorage.getItem(key);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function safeSetLocalStorage(key, value) {
+    try {
+      localStorage.setItem(key, value);
+    } catch (e) {
+      /* 忽略：记忆失败不影响主题功能 */
+    }
+  }
+
   function getInitialTheme() {
-    const saved = localStorage.getItem(THEME_KEY);
+    const saved = safeGetLocalStorage(THEME_KEY);
     if (saved === "light" || saved === "dark") return saved;
     return window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"
@@ -19,19 +36,22 @@
 
   function applyTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem(THEME_KEY, theme);
+    safeSetLocalStorage(THEME_KEY, theme);
   }
 
   function initTheme() {
-    applyTheme(getInitialTheme());
+    const theme = getInitialTheme();
+    applyTheme(theme);
     const toggle = document.getElementById("theme-toggle");
     if (toggle) {
+      toggle.setAttribute("aria-pressed", String(theme === "dark"));
       toggle.addEventListener("click", () => {
         const current =
           document.documentElement.getAttribute("data-theme") === "dark"
             ? "light"
             : "dark";
         applyTheme(current);
+        toggle.setAttribute("aria-pressed", String(current === "dark"));
       });
     }
   }
@@ -209,9 +229,13 @@
       relatedEl.hidden = true;
     }
 
-    // 找不到文章时跳回首页
+    // 找不到文章时回填 URL（file:// 下可能抛 SecurityError，故忽略异常）
     if (!id) {
-      history.replaceState(null, "", `article.html?id=${article.id}`);
+      try {
+        history.replaceState(null, "", `article.html?id=${article.id}`);
+      } catch (e) {
+        /* 忽略 */
+      }
     }
   }
 

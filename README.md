@@ -18,11 +18,14 @@ demo/
 ├── index.html        首页（文章列表）
 ├── article.html      文章详情页
 ├── about.html        关于页
+├── favicon.svg       站点图标
+├── .gitignore        忽略规则
 ├── css/
 │   └── style.css     全部样式（含主题变量）
 └── js/
     ├── articles.js   文章数据
-    └── main.js       渲染 / 筛选 / 搜索 / 主题切换
+    ├── main.js       渲染 / 筛选 / 搜索 / 主题切换
+    └── sorting.js    三种排序算法（node js/sorting.js 运行验证）
 ```
 
 ## 快速开始
@@ -58,3 +61,11 @@ npx serve .
 ```
 
 无需改其他任何文件，首页列表、标签、搜索、详情页都会自动生效。
+
+## 排序算法
+
+`js/sorting.js` 实现了三种经典排序算法：冒泡排序、快速排序、归并排序。
+
+```bash
+node js/sorting.js   # 输出排序结果与正确性校验
+```

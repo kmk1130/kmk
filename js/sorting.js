@@ -43,7 +43,12 @@ function quickSort(arr) {
 
   // 对 a[lo..hi] 进行分区，返回基准值的最终位置
   function partition(lo, hi) {
-    const pivot = a[hi]; // 取最右元素为基准
+    // 三数取中（median-of-three），避免已排序/大量重复数据退化为 O(n²)
+    const mid = (lo + hi) >> 1;
+    if (a[lo] > a[mid]) [a[lo], a[mid]] = [a[mid], a[lo]];
+    if (a[lo] > a[hi]) [a[lo], a[hi]] = [a[hi], a[lo]];
+    if (a[mid] > a[hi]) [a[mid], a[hi]] = [a[hi], a[mid]];
+    const pivot = a[hi];
     let i = lo; // i 指向「小于 pivot 区域」的下一个位置
     for (let j = lo; j < hi; j++) {
       if (a[j] < pivot) {
