@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>关于 · 代码手记</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">&lt;/&gt;</span>
+        <span class="brand-name">代码手记</span>
+      </a>
+
+      <nav class="site-nav">
+        <a href="index.html" class="nav-link">首页</a>
+        <a href="about.html" class="nav-link active">关于</a>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="切换主题">
+          <span class="theme-icon" data-icon="moon">🌙</span>
+          <span class="theme-icon" data-icon="sun">☀️</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container about-page">
+    <section class="about-hero">
+      <div class="about-avatar" aria-hidden="true">👋</div>
+      <h1 class="about-name">你好，我是这里的作者</h1>
+      <p class="about-bio">
+        一名喜欢折腾的开发爱好者。这里是我的技术博客，用来记录我在学习前端、命令行工具
+        以及日常开发中踩过的坑和总结的经验。希望这些零散的笔记，也能帮到同样在路上的你。
+      </p>
+    </section>
+
+    <section class="about-section">
+      <h2>我在写什么</h2>
+      <div class="about-cards">
+        <div class="about-card">
+          <span class="about-card-icon">🎨</span>
+          <h3>前端开发</h3>
+          <p>HTML、CSS、JavaScript 以及它们的现代用法与实践。</p>
+        </div>
+        <div class="about-card">
+          <span class="about-card-icon">🛠️</span>
+          <h3>命令行 &amp; 工具</h3>
+          <p>Git、Shell 以及那些能提升效率的小工具。</p>
+        </div>
+        <div class="about-card">
+          <span class="about-card-icon">📚</span>
+          <h3>学习笔记</h3>
+          <p>读书与课程中的摘录、思考与整理。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2>技术栈</h2>
+      <div class="skills" id="skills">
+        <span class="skill-chip">HTML5</span>
+        <span class="skill-chip">CSS3</span>
+        <span class="skill-chip">JavaScript</span>
+        <span class="skill-chip">Git</span>
+        <span class="skill-chip">Shell</span>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2>联系我</h2>
+      <p class="about-contact">
+        如果你有问题或想交流，欢迎通过
+        <a href="mailto:hello@example.com" class="text-link">Email</a> 或
+        <a href="https://github.com" target="_blank" rel="noopener" class="text-link">GitHub</a> 找到我。
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> 代码手记 · 用简单的 HTML + CSS + JS 搭建</p>
+      <a href="index.html" class="footer-link">回到顶部 ↑</a>
+    </div>
+  </footer>
+
+  <script src="js/articles.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

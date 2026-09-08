@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>代码手记 · 个人技术博客</title>
+  <meta name="description" content="一个关于前端、工具与编程的简单技术博客" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">&lt;/&gt;</span>
+        <span class="brand-name">代码手记</span>
+      </a>
+
+      <nav class="site-nav">
+        <a href="index.html" class="nav-link active">首页</a>
+        <a href="about.html" class="nav-link">关于</a>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="切换主题">
+          <span class="theme-icon" data-icon="moon">🌙</span>
+          <span class="theme-icon" data-icon="sun">☀️</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <p class="hero-eyebrow">PERSONAL TECH BLOG</p>
+      <h1 class="hero-title">记录代码、工具<br />与每一个踩过的坑</h1>
+      <p class="hero-sub">关于前端开发、命令行与日常效率的零散笔记。</p>
+
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input
+          id="search-input"
+          type="text"
+          placeholder="搜索文章标题、标签或关键词…"
+          autocomplete="off"
+        />
+      </div>
+
+      <div class="tag-filter" id="tag-filter" aria-label="标签筛选"></div>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="list-head">
+      <h2 id="list-title">全部文章</h2>
+      <span id="result-count" class="result-count"></span>
+    </div>
+    <div id="article-list" class="article-list"></div>
+    <div id="empty-state" class="empty-state" hidden>
+      <p class="empty-emoji">🔎</p>
+      <p>没有找到匹配的文章，换个关键词试试吧。</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> 代码手记 · 用简单的 HTML + CSS + JS 搭建</p>
+      <a href="index.html" class="footer-link">回到顶部 ↑</a>
+    </div>
+  </footer>
+
+  <script src="js/articles.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
